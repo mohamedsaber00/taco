@@ -12,20 +12,22 @@ import retrofit2.http.Path
 interface TacoService {
 
     /**
-     * Request a specific category
-     */
-    @GET("api/v1/category/{categoryId}")
-    suspend fun getCategoryAsync(@Path("categoryId") categoryId: Int): Category
-
-    /**
      * Request all available categories
      */
     @GET("api/v1/category")
     suspend fun getAllCategoriesAsync(): List<Category>
 
+    /*
+     *  Request a specific category
+     */
+    @GET("api/v1/category/{id}")
+    suspend fun getCategoryAsync(@Path("id") id: Int): List<Category>
+
     /**
-     * Request all available categories
+     * Request all available food
      */
     @GET("api/v1/food")
     suspend fun getAllFoodAsync(): List<Food>
+
+
 }

@@ -12,4 +12,5 @@ class Converters {
 
     @TypeConverter
     fun toHM(map: String?) = map.fromJson<HashMap<String, Nutrient>?>()
+
 }

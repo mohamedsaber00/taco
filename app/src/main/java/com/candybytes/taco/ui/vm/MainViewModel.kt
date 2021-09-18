@@ -1,16 +1,17 @@
 package com.candybytes.taco.ui.vm
 
-import androidx.hilt.Assisted
-import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
-import com.candybytes.taco.api.TacoService
 
-class MainViewModel @ViewModelInject constructor(
-    @Assisted private val savedStateHandle: SavedStateHandle
+import androidx.lifecycle.*
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+
+
+@HiltViewModel
+class MainViewModel @Inject constructor(
+     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     val showBottomBar = MutableLiveData(true)
-
 
 
 }

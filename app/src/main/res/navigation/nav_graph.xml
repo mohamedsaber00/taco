@@ -9,12 +9,50 @@
         android:id="@+id/categoriesFragment"
         android:name="com.candybytes.taco.ui.fragments.CategoryListFragment"
         android:label="@string/menu_category"
-        tools:layout="@layout/fragment_category_list" />
+        tools:layout="@layout/fragment_category_list">
+        <action
+            android:id="@+id/action_categoriesFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/searchFoodFragment"
         android:name="com.candybytes.taco.ui.fragments.SearchFoodFragment"
         android:label="@string/menu_search"
-        tools:layout="@layout/fragment_search_food" />
+        tools:layout="@layout/fragment_search_food">
+        <action
+            android:id="@+id/action_searchFoodFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodFragment"
+        android:name="com.candybytes.taco.ui.fragments.FoodFragment"
+        android:label="{foodTitle}">
+        <argument
+            android:name="food"
+            app:argType="com.candybytes.taco.vo.Food" />
+
+        <argument
+            android:name="foodTitle"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_foodFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.candybytes.taco.ui.fragments.CategoryFragment"
+        android:label="{categoryTitle}">
+        <action
+            android:id="@+id/action_categoryFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
+        <argument
+            android:name="categoryTitle"
+            app:argType="string" />
+
+        <argument
+            android:name="category"
+            app:argType="com.candybytes.taco.vo.Category" />
+    </fragment>
 
 </navigation>

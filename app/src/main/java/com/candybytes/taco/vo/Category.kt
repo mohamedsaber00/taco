@@ -1,9 +1,12 @@
 package com.candybytes.taco.vo
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "categories")
 data class Category(
 
@@ -18,6 +21,12 @@ data class Category(
      * Category description.
      */
     @SerializedName("category")
-    val name: String = ""
+    val name: String = "",
 
-)
+    /**
+     * Number of foods available.
+     */
+    @SerializedName("foodCount")
+    var foodCount: Int? = null
+
+) : Parcelable

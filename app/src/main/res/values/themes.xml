@@ -19,4 +19,18 @@
         <item name="android:windowLightNavigationBar" tools:targetApi="p">true</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <!-- Custom Style for Button -->
+    <style name="OutlinedButtonStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/green</item>
+    </style>
+    <style name="FabStyle" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/red</item>
+    </style>
+
+
+
+
+
 </resources>

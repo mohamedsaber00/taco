@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="food"
+            type="com.candybytes.taco.vo.Food" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+        </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:onClick="@{clickListener}">
 
     <!--
        combine quantity and unit
@@ -14,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:text="@{String.valueOf(food.baseQty) + food.baseUnity}"
         android:maxLines="2"
         app:layout_constrainedWidth="true"
         app:layout_constraintEnd_toStartOf="@id/food_id"
@@ -30,6 +45,7 @@
         style="?attr/textAppearanceCaption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@{'#' + String.valueOf(food.id)}"
         android:layout_margin="8dp"
         app:layout_constraintBaseline_toBaselineOf="@id/qtyAndUnit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,8 +60,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        app:layout_constraintTop_toBottomOf="@id/qtyAndUnit"
+        android:layout_marginBottom="8dp"
+
+        android:text="@{food.description}"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/qtyAndUnit"
         tools:text="Camarão, Rio Grande, grande, cru" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

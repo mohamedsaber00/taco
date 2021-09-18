@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         val binding: MainActivityBinding =
             DataBindingUtil.setContentView(this, R.layout.main_activity)
 
+
         binding.apply {
             // Specify the current activity as the lifecycle owner.
             viewModel = this@MainActivity.viewModel
@@ -52,6 +53,7 @@ class MainActivity : AppCompatActivity() {
             challengeTimer()
 
             //setup header and footer
+            setSupportActionBar(toolbar)
             toolbar.setupWithNavController(navController, appBarConfiguration)
             navBottomBar.setupWithNavController(navController)
         }
@@ -91,6 +93,6 @@ class MainActivity : AppCompatActivity() {
             //stop time when 4hrs of work has passed
         } while (deltaTime < (4 * 60 * 60 * 1000))
 
-        bottomNavigation.menu[1].title = "stop it ;-)"
+            bottomNavigation.menu[1].title = "stop it ;-)"
     }
 }
