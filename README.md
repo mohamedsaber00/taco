@@ -1,3 +1,50 @@
+# Code Documentation
+## Tasks:
+- Project overview  : 
+    - Added Fragments and directions
+    - Added safe-args 
+    - Added dynamic titles of toolbars
+    
+- Web request [CategoryListFragment] :
+   - Created RecyclerView and Adapter
+   - Created CategoriesInteractor which act as repository to handle data operation (Getting data from the API in this Case)
+   - Used Coroutines to get amount per each category asynchronously tehn update the RecyclerView
+  
+
+- Database [SearchFoodFragment] :
+  - Created RecyclerView and Adapter
+  - Created FoodsInteractor which act as repository to handle data operation (Getting data from db) 
+  - Getting data Paginated using Jetpack Paging V3
+  - Show the paginated data in the UI
+
+- Search [SearchFoodFragment]
+   - Add SearchView in the toolbar
+   - Handle search button clicked & and keyboard click
+   - Added search Query in food dao
+   - Edited FoodsInteractor to handle the operation
+   - Update The RecyclerView with results with smooth animations
+- Food details [FoodFragment]
+    - Designed The same screen in figma 
+    - User safe-args to get the details of food
+    - Set food title to Toolbar title
+    - Updated Category button from Rest API
+    - Used a ActivityResultContracts to capture the photo and use Coil to load it in the imageView using dataBinding adapter
+       - TODO : save the Uri as String in the database to load the image again
+ - Category details 
+   -  used SearchFood adapter
+   -  setup navigation, safe-args and changing the title of the toolbar
+   -  Getting the data using paging V3
+
+## Extra :
+   - Chaned (fragment to lifecycleOwner) in all fragments to avoid memory leak
+   - Added 2 styles to theme Button and FloatingActionButton
+   - Adding Progreebar while loading data from API
+
+
+
+
+
+
 # TACO 🌮
 #### [T]he [A]ndroid [C]hallenge :-[O]
 Version 1.0
