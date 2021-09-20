@@ -8,7 +8,8 @@
 - Web request [CategoryListFragment] :
    - Created RecyclerView and Adapter
    - Created CategoriesInteractor which act as repository to handle data operation (Getting data from the API in this Case)
-   - Used Coroutines to get amount per each category asynchronously tehn update the RecyclerView
+   - Updated Category column in the database and provided migration using dagger Hilt to migrate the database
+   - Used Coroutines to get amount per each category asynchronously then update the RecyclerView adapter
   
 
 - Database [SearchFoodFragment] :
@@ -23,6 +24,7 @@
    - Added search Query in food dao
    - Edited FoodsInteractor to handle the operation
    - Update The RecyclerView with results with smooth animations
+  
 - Food details [FoodFragment]
     - Designed The same screen in figma 
     - User safe-args to get the details of food
