@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.candybytes.taco.databinding.FragmentCategoryListBinding
-import com.candybytes.taco.ui.events.CategoryEvent
 import com.candybytes.taco.ui.adapters.CategoryListAdapter
+import com.candybytes.taco.ui.events.CategoryEvent
 import com.candybytes.taco.ui.vm.CategoriesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -51,7 +51,7 @@ class CategoryListFragment : Fragment() {
         viewModel.categoryList.observe(viewLifecycleOwner) {
             //update the adapter with the new list
             categoryListAdapter.submitList(it)
-
+            //Helps to update the adapter after adding foodCounts
             categoryListAdapter.notifyDataSetChanged()
         }
     }
@@ -74,7 +74,10 @@ class CategoryListFragment : Fragment() {
         //init RecyclerView
         binding.categoriesRecyclerView.apply {
             setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(requireContext())
+            layoutManager = StaggeredGridLayoutManager(
+                2, // 2 columns
+                StaggeredGridLayoutManager.VERTICAL
+            )
             adapter = categoryListAdapter
         }
     }
